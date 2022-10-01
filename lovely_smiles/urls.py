@@ -10,5 +10,9 @@ urlpatterns = [
     path(
         'services', views.ServicesView.as_view(),
         name='services'
-       )
+       ),
+    path(
+        'makeappointment/', views.CreateAppointmentView.as_view(),
+        name='makeappointment'
+        )
 ]
