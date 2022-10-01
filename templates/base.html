@@ -36,7 +36,7 @@
 
                         {% if user.is_authenticated %}
                         
-                        <li><a href="">Make Appointment</a>
+                        <li><a href="{% url 'makeappointment' %}">Make Appointment</a>
                             
 
                     <li><a href="{% url 'account_logout' %}">Logout</a>
