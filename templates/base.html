@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="‘Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.’ – Mother Theresa" />
+    <meta name="keywords" content="Consultation, Bridges, Crowns, Fillings, Root canal treatment, Scale and polish, Braces, Wisdom tooth removal, Dental implants, Dentures or false teeth, Teeth whitening, Dental veneers" />
+    <title>Lovely smiles dental</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}" />
+    
+    <!-- Font Awesome -->
+    
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+    <header>
+         <!-- Navigation-->
+    <nav>
+        <div class="container">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Lovely smiles dental logo">
+            </a>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a>
+                    <li><a href="{% url 'services' %}">Services</a>
+                    <li><a href="{% url 'appointments' %}">Appointments</a>
+
+                        {% if user.is_authenticated %}
+                        
+                        <li><a href="{% url 'makeappointment' %}">Make Appointment</a>
+                            
+
+                    <li><a href="{% url 'account_logout' %}">Logout</a>
+                            <li>Logged in as {{user.username}}</li>         
+                        {% else %}
+
+                    <li><a href="{% url 'account_signup' %} ">Register</a>
+
+
+                    <li><a href="{% url 'account_login' %}">Login</a>
+
+                        {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    {% block content %}
+    {% endblock content %}
+
+
+
+    <footer >
+        <div>
+            <p>Petru Chelban 2022</p>
+        </div>
+
+    </footer>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script>setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2000);</script>
+
+    
+</body>
+
+</html>
