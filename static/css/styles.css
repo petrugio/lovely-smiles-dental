@@ -1,0 +1,6 @@
+@media (min-width: 576px){
+    .navbar-expand-sm .navbar-collapse {
+            display: flex;
+            justify-content: flex-end !important;
+        }
+    }
