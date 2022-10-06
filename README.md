@@ -13,7 +13,7 @@ After the project scope was clearly defined, following the process of creating m
 
  # User Experience
 
-<hr>
+
 
 ## Epic: Create initial Django Setup
 

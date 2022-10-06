@@ -30,7 +30,6 @@ nav a {
 }
 .nav-item:hover {
     background-color: rgba(247, 212, 212, 0.5);
-    border-radius: 10px;
 }
 
 /*Logo*/
@@ -72,6 +71,9 @@ nav a {
     .navbar-expand-sm .navbar-collapse {
         display: flex;
         justify-content: flex-end !important;
+    }
+    .nav-item:hover {
+        border-radius: 10px;
     }
 }
 
