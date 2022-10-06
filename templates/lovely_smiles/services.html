@@ -1,4 +1,299 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<!-- Main section -->
+<main>
+    <div class="container">
+        <div class="col-12 text-center">
+            <h1>Services we offer</h1>
+        </div>
+        <div class="row form-group row-blue py-3">
+            <div class="col-12 text-center">
+                <h2>Consultation</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    During your initial consultation the dentist will go trough your medical history and and perform a
+                    oral
+                    inspection of teeth and gums and provide you with a diagnosis and treatment options.
+                    Occasionally, treatment can be performed the same day as the consultation. However, a complex
+                    medical
+                    history or treatment plan will require an evaluation and a second appointment to provide treatment
+                    on
+                    another day.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739257/Lovely%20smiles%20dental/consultation_ui2i1g.webp"
+                    alt="dentist consultation with a small girl">
+            </div>
+        </div>
+        <div class="row form-group row-pink py-3">
+            <div class="col-12 text-center">
+                <h2>Bridges</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739257/Lovely%20smiles%20dental/bridges_rerilo.webp"
+                    alt="illustration of a dental bridge">
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    A bridge is a fixed replacement for a missing tooth or teeth. It's made by taking an impression of
+                    the surrounding teeth, which will eventually support the bridge.
+
+                    A bridge is usually created from precious metal and porcelain and will be fixed in your mouth
+                    (unlike dentures, which can be removed).
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group row-green py-3">
+            <div class="col-12 text-center">
+                <h2>Crowns</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    A crown is a type of cap that completely covers a real tooth. It's usually made from metal,
+                    porcelain fused to metal, or ceramic and is fixed in your mouth.
+
+                    Crowns can be fitted where a tooth has broken, decayed or been damaged, or just to make a tooth look
+                    better.
+
+                    To fit a crown, the old tooth will need to be drilled down so it's like a small peg the crown will
+                    be fixed on to.
+
+                    It can take some time for the lab to prepare a new crown, so you probably will not have the crown
+                    fitted on the same day.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739257/Lovely%20smiles%20dental/crowns_o3fpte.webp"
+                    alt="illustration of a dental crown">
+            </div>
+        </div>
+        <div class="row form-group row-blue py-3">
+            <div class="col-12 text-center">
+                <h2>Fillings</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664893049/Lovely%20smiles%20dental/filling_txns60.webp"
+                    alt="picture of a woman smiling">
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Fillings are used to repair a hole in a tooth caused by decay. The most common type of filling is an
+                    amalgam made from a mixture of metals including mercury, silver, tin and copper.
+
+                    Your dentist will offer the most appropriate type of filling according to your clinical needs. This
+                    includes white fillings, if appropriate.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group row-pink py-3">
+            <div class="col-12 text-center">
+                <h2>Root canal treatment</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Root canal treatment (also called endodontics) tackles infection at the centre of a tooth (the root
+                    canal system).
+
+                    When the blood or nerve supply of the tooth has become infected, the infection will spread and the
+                    tooth may need to be taken out if root canal treatment is not carried out.
+
+                    During treatment, all the infection is removed from inside the root canal system.
+
+                    The root canal is filled and the tooth is sealed with a filling or crown to stop it becoming
+                    infected again.
+
+                    Root canal treatment usually requires 2 or more visits to your dentist.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739256/Lovely%20smiles%20dental/root_l1evjv.webp"
+                    alt="illustration of a tooth with caries">
+            </div>
+        </div>
+        <div class="row form-group row-green py-3">
+            <div class="col-12 text-center">
+                <h2>Braces</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739257/Lovely%20smiles%20dental/braces_xg2tpi.webp"
+                    alt="picture of a woman with braces">
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Braces (orthodontic treatment) straighten or move teeth to improve the appearance of the teeth and
+                    how they work.
+
+                    Braces can be removable, so you can take them out and clean them, or fixed, so they're stuck to your
+                    teeth and you cannot take them out.
+
+                    They can be made of metal, plastic or ceramic. Invisible braces are made of a clear plastic.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group row-blue py-3">
+            <div class="col-12 text-center">
+                <h2>Wisdom tooth removal</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    The wisdom teeth grow at the back of your gums and are the last teeth to come through, usually in
+                    your late teens or early twenties.
+
+                    Most people have 4 wisdom teeth, 1 in each corner.
+
+                    Wisdom teeth can sometimes emerge at an angle or get stuck and only emerge partially. Wisdom teeth
+                    that grow through in this way are known as impacted.
+
+                    If your wisdom teeth are impacted but are not causing any problems, they do not usually need to be
+                    removed.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664893374/Lovely%20smiles%20dental/wisdom_tminwj.webp"
+                    alt="illustration of a wisdom tooth erupting">
+            </div>
+        </div>
+        <div class="row form-group row-pink py-3">
+            <div class="col-12 text-center">
+                <h2>Dental implants</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739256/Lovely%20smiles%20dental/implants_renshp.webp"
+                    alt="illustration of a dental implant">
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Implants are a fixed alternative to removable dentures.
+
+                    You can use implants to replace just a single tooth or several teeth.
+
+                    To fit an implant, titanium screws are drilled into the jaw bone to support a crown, bridge or
+                    denture.
+
+                    Replacement parts take time to prepare because they need to fit your mouth and other teeth properly.
+                    This means they may not be available on your first visit to the dentist.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group row-green py-3">
+            <div class="col-12 text-center">
+                <h2>Dentures or false teeth</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    More commonly known as false teeth, dentures are fitted in place of natural teeth.
+
+                    A full set is used to replace all your teeth. A partial set is used to replace 1 or more missing
+                    teeth.
+
+                    Dentures are custom-made using impressions (mouldings) from your gums. They're usually made from
+                    metal or plastic.
+
+                    They're removable, and you can clean them by soaking them in a cleaning solution.
+
+                    Dentures are important if you lose your natural teeth, as losing your teeth makes it difficult to
+                    chew your food, which will adversely affect your diet and may cause your facial muscles to sag.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664893316/Lovely%20smiles%20dental/dentures_royzxd.webp"
+                    alt="illustration of lower jaw dentures">
+            </div>
+        </div>
+        <div class="row form-group row-blue py-3">
+            <div class="col-12 text-center">
+                <h2>Teeth whitening</h2>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664893502/Lovely%20smiles%20dental/whitening_iktwwa.webp"
+                    alt="picture of a woman before and after teeth whitening">
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Teeth whitening involves bleaching your teeth to make them a lighter colour.
+
+                    Teeth whitening cannot make your teeth brilliant white, but it can lighten the existing colour by
+                    several shades.
+
+                    Standard teeth whitening involves 2 to 3 visits to the dentist, plus sessions at home wearing a
+                    mouthguard containing bleaching gel.
+
+                    You usually need to wear the mouthguard and bleaching gel for a specified period of time over a few
+                    weeks.
+
+                    Another procedure called laser whitening or power whitening is done at the dentist's surgery and
+                    takes about an hour.
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group row-pink py-3">
+            <div class="col-12 text-center">
+                <h2>Dental veneers</h2>
+            </div>
+            <div class="col-md-6 p-3">
+                <p class="py-3">
+                    Veneers are new facings for teeth that disguise a discoloured or chipped tooth.
+
+                    To fit a veneer, the front of the tooth is drilled away a little.
+
+                    An impression is taken, and a thin layer of porcelain is fitted over the front of the tooth (similar
+                    to how a false fingernail is applied).
+                </p>
+                <div class="text-center">
+                    <a class="btn btn-info btn-sm" href="{% url 'makeappointment' %}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img class="services-image img-fluid"
+                    src="https://res.cloudinary.com/dg29hxrpz/image/upload/v1664739256/Lovely%20smiles%20dental/veneers_xjgzdq.webp"
+                    alt="picture of a dentist with a woman chosing the right color veneers">
+            </div>
+        </div>
+    </div>
+</main>
+</body>
 {% endblock content %}
