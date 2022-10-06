@@ -1,11 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
+/*Generic*/
+
 body {
     font-family: Latto;
     font-weight: 300;
     color: #404e57;
     background-color:#d0e2eb08;
   }
+
+/*Nav menu*/
 
 nav {
     background-color: #F9F9F9;
@@ -29,9 +33,13 @@ nav a {
     border-radius: 10px;
 }
 
+/*Logo*/
+
 #logo {
     border-radius: 5%;
 }
+
+/*Services page*/
 
 .row, .services-image {
     border-radius: 10px;
@@ -52,6 +60,8 @@ nav a {
     font-size: larger;
     font-weight: bold;
 }
+
+/*Media query*/
 
 @media (max-width: 650px) {
     .navbar .navbar-nav {
