@@ -11,11 +11,11 @@ body {
 
 /*Nav menu*/
 
-nav {
+nav, footer {
     background-color: #F9F9F9;
 }
 
-nav a {
+nav a,  .contact-details a {
     color: #404e57 !important;
 }
 
@@ -53,8 +53,13 @@ nav a {
    
 }
 
-.contact-details:hover {
+.contact-details a:hover {
     text-decoration: none;
+    background-color: rgb(149, 199, 239);
+    border-radius: 10px;
+  }
+  .map iframe {
+    border-radius: 6px;
   }
 
 /*Services page*/
@@ -73,7 +78,9 @@ nav a {
 .row-green {
     background-color: rgb(238, 250, 241);
 }
-
+.row-contact {
+    background-color: rgb(249, 249, 249);
+}
 .btn-info {
     font-size: larger;
     font-weight: bold;
