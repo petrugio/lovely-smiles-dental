@@ -53,6 +53,10 @@ nav a {
    
 }
 
+.contact-details:hover {
+    text-decoration: none;
+  }
+
 /*Services page*/
 
 .row, .services-image {
