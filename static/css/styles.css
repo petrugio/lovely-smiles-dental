@@ -38,6 +38,25 @@ nav a {
     border-radius: 5%;
 }
 
+/*Homepage*/
+
+.callout-container {
+    background: url('https://res.cloudinary.com/dg29hxrpz/image/upload/v1665147323/Lovely%20smiles%20dental/hero-blur_qifun8.webp') center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+   
+}
+
+.contact-details:hover {
+    text-decoration: none;
+  }
+
 /*Services page*/
 
 .row, .services-image {
@@ -74,6 +93,9 @@ nav a {
     }
     .nav-item:hover {
         border-radius: 10px;
+    }
+    .callout-container {
+        height: 70vh;
     }
 }
 
