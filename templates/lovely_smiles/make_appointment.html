@@ -1,13 +1,37 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+% bootstrap_javascript %}
+{{ form.media }}
+
 {% load static %}
 
+{% block css %}
+{{ block.super }}
+
+{% endblock %}
+
+{% block extrahead %}
+{{ form.media }}
+{% endblock %}
+
+<!-- Create Appointment form -->
 {% block content %}
-<div>
-    <form method="POST" action="{% url 'makeappointment' %}" enctype="multipart/form-data">
-        <h1 class="text-center">Make Appointment</h1>
-        {% csrf_token %}
-        {{ form }}
-        <button type="submit" class="btn form-style">Create</button>
-    </form>
+<div class="container mt-2">
+    <div class="row row-green">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="text-center">Make Appointment</h1>
+            <form class="mb-2 p-2 form-style" method="POST" action="{% url 'make_appointment' %}"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <div class="text-center mt-2">
+                    <button type="submit" class="btn btn-secondary mb-2" value="Save">Create</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
 </div>
-{% endblock content %}
+{% endblock %}

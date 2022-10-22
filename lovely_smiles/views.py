@@ -1,4 +1,5 @@
 from datetime import timedelta, date
+from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 from django.views.generic import TemplateView
 from django.contrib import messages
@@ -24,18 +25,25 @@ class HomeView(TemplateView):
 
 class CreateAppointmentView(LoginRequiredMixin, CreateView):
     """
-    View to render createbookings
-    and allow user to create a booking
+    View to create an appointment
     """
     form_class = MakeAppointmentForm
     template_name = 'lovely_smiles/make_appointment.html'
     success_url = "/appointments/"
     model = Appointment
 
+    def get_form(self):
+        """
+        Form date and time input
+        """
+        form = super().get_form()
+        form.fields['appointment_date'].widget = DatePickerInput()
+        form.fields['appointment_time'].widget = TimePickerInput()
+        return form
+
     def form_valid(self, form):
         """
-        Before form submission, assign table with lowest capacity
-        needed for booking guests
+        Form validation
         """
         patient_name = form.cleaned_data['patient_name']
         form.instance.user = self.request.user
