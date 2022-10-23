@@ -62,29 +62,47 @@ nav a,  .contact-details a {
     border-radius: 6px;
   }
 
-/*Services page*/
+/*Rows styling*/
 
-.row, .services-image {
+.services-image {
     border-radius: 10px;
 }
 
 .row-blue {
     background-color: rgb(243, 249, 254);
+    border-radius: 10px;
 }
 
 .row-pink {
     background-color: rgb(251, 245, 246);
+    border-radius: 10px;
 }
 .row-green {
     background-color: rgb(238, 250, 241);
+    border-radius: 10px;
 }
 .row-contact {
     background-color: rgb(249, 249, 249);
+    border-radius: 10px;
 }
 .btn-info {
     font-size: larger;
     font-weight: bold;
 }
+
+/*Login and register page*/
+
+p a {
+    color: #7e5e80;
+    font-style: italic;
+}
+
+p a:hover {
+    font-weight: bold;
+    background-color: rgba(247, 212, 212, 0.5);
+    text-decoration: none;
+}
+
 
 /*Media query*/
 
