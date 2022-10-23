@@ -81,3 +81,44 @@ class ListAppointmentsView(LoginRequiredMixin, ListView):
                 user=self.request.user,
                 appointment_date__gt=(date.today()-timedelta(days=1))
                 )
+
+
+class EditAppointmentsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    A view to provide a form to the user
+    to edit an appointment
+    """
+    form_class = MakeAppointmentForm
+    template_name = 'lovely_smiles/edit_appointments.html'
+    success_url = "/appointments/"
+    model = Appointment
+
+    def get_form(self):
+        """
+        Form date and time input
+        """
+        form = super().get_form()
+        form.fields['appointment_date'].widget = DatePickerInput()
+        form.fields['appointment_time'].widget = TimePickerInput()
+        return form
+
+    def form_valid(self, form):
+        """
+        Check if the form is valid
+        """
+        patient_name = form.cleaned_data['patient_name']
+        date = form.cleaned_data['appointment_date']
+        time = form.cleaned_data['appointment_time']
+
+        messages.success(
+            self.request,
+            f'Successfully updated appointment for {patient_name} on {date} at {time}'
+        )
+        return super(EditAppointmentsView, self).form_valid(form)
+
+    def test_func(self):
+        """ Test user is staff or show 403 """
+        if self.request.user.is_staff:
+            return True
+        else:
+            return self.request.user == self.get_object().user

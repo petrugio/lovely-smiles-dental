@@ -11,10 +11,10 @@ urlpatterns = [
         'appointments/', views.ListAppointmentsView.as_view(),
         name='appointments'
         ),
-    # path(
-    #     'edit_appointment/<slug:pk>', views.EditAppointmentsView.as_view(),
-    #     name='edit_appointment'
-    #     ),
+    path(
+        'edit_appointment/<slug:pk>', views.EditAppointmentsView.as_view(),
+        name='edit_appointment'
+        ),
     # path(
     #     'delete_appointment/<slug:pk>', views.DeleteAppointmentView.as_view(),
     #     name='delete_appointment'
