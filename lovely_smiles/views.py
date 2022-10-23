@@ -122,3 +122,17 @@ class EditAppointmentsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
             return True
         else:
             return self.request.user == self.get_object().user
+
+
+class DeleteAppointmentView(LoginRequiredMixin, UserPassesTestMixin,
+                            DeleteView):
+    """ A view to delete a appointment """
+    model = Appointment
+    success_url = "/appointments"
+    
+    def test_func(self):
+        """ Test user is staff else show 403 """
+        if self.request.user.is_staff:
+            return True
+        else:
+            return self.request.user == self.get_object().user
