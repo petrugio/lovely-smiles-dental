@@ -56,3 +56,28 @@ class CreateAppointmentView(LoginRequiredMixin, CreateView):
         )
 
         return super(CreateAppointmentView, self).form_valid(form)
+
+
+class ListAppointmentsView(LoginRequiredMixin, ListView):
+    """
+    View to render view appointments
+    and allow user to manage a appointments
+    """
+    template_name = 'lovely_smiles/view_appointments.html'
+    model = Appointment
+
+    def get_queryset(self):
+        """ Queryset function to display appointments """
+
+        if self.request.user.is_staff:
+            # returns all appointments within last 5 days
+            return Appointment.objects.filter(
+                appointment_date__gt=(date.today()-timedelta(days=5))
+                )
+        else:
+            # returns all appointments for logged in patient
+            # with date greater than yesterday
+            return Appointment.objects.filter(
+                user=self.request.user,
+                appointment_date__gt=(date.today()-timedelta(days=1))
+                )

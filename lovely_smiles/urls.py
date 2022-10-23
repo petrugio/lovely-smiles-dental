@@ -7,10 +7,10 @@ urlpatterns = [
         'make_appointment/', views.CreateAppointmentView.as_view(),
         name='make_appointment'
         ),
-    # path(
-    #     'appointments/', views.ListAppointmentsView.as_view(),
-    #     name='appointments'
-    #     ),
+    path(
+        'appointments/', views.ListAppointmentsView.as_view(),
+        name='appointments'
+        ),
     # path(
     #     'edit_appointment/<slug:pk>', views.EditAppointmentsView.as_view(),
     #     name='edit_appointment'

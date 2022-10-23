@@ -18,7 +18,7 @@ SERVICES = (
     ("Veneers", "Dental veneers")
 )
 
-# Denists choices
+# Dentists choices
 DENTISTS = (
     ("Dr_Becket", "Dr. Becket"),
     ("Dr_Giku", "Dr. Giku")
