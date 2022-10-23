@@ -1,4 +1,57 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
+
+{% block css %}
+{{ block.super }}
+{% endblock %}
+
 {% block content %}
-{% endblock content %}
+
+<!-- Manage appointments -->
+<div class="container row-pink mt-2">
+    <h1 class="text-center">Appointments</h1>
+    <div class="row mt-2">
+        <table class="table table-bordered table-hover table-sm text-center my-3 table-responsive-sm">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Patient</th>
+                    <th>Dentist</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            {% for appointment in object_list %}
+            <tbody>
+                <tr>
+                    <td>
+                        {{ appointment.service }}
+                    </td>
+                    <td>
+                        {{ appointment.patient_name }}
+                    </td>
+                    <td>
+                        {{ appointment.dentist }}
+                    </td>
+                    <td>
+                        {{ appointment.appointment_date }}
+                    </td>
+                    <td>
+                        {{appointment.appointment_time }}
+                    </td>
+                    <td>
+                        <a href="{% url 'edit_appointment' appointment.id %}"
+                            class="btn btn-secondary table-btn">Edit</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'delete_appointment' appointment.id %}"
+                            class="btn btn-danger table-btn">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{%endblock%}

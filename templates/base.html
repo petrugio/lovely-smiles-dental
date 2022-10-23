@@ -5,14 +5,15 @@
 <head>
     <!-- Generic -->
     <title>Lovely smiles dental</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description"
-        content="'Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.' - Mother Theresa" />
+        content="'Every time you smile at someone, it is an action of love, a gift to that person, a beautiful thing.' - Mother Theresa">
     <meta name="keywords"
-        content="Consultation, Bridges, Crowns, Fillings, Root canal treatment, Scale and polish, Braces, Wisdom tooth removal, Dental implants, Dentures or false teeth, Teeth whitening, Dental veneers" />
-    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}" />
-    <link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png" />
+        content="Consultation, Bridges, Crowns, Fillings, Root canal treatment, Scale and polish, Braces, Wisdom tooth removal, Dental implants, Dentures or false teeth, Teeth whitening, Dental veneers">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'favicon/apple-touch-icon.png' %}">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -55,10 +56,10 @@
                         <a class="nav-link" href="{% url 'services' %}">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Appointments</a>
+                        <a class="nav-link" href="{% url 'appointments' %}">Appointments</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'makeappointment' %}">Make Appointment</a>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'make_appointment' %}">Make Appointment</a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Logout</a></li>
                     {% else %}
@@ -69,6 +70,9 @@
             </div>
         </nav>
     </header>
+
+    {% block extrahead %}
+    {% endblock %}
 
     <!-- Alert-->
     <div class="container sticky-top position-absolute">
@@ -107,7 +111,7 @@
                 let alert = new bootstrap.Alert(messages);
                 alert.close();
             }
-        }, 3000);
+        }, 2000);
     </script>
 </body>
 

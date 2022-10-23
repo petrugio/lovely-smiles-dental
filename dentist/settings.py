@@ -42,15 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'crispy_forms',
     'lovely_smiles',
     'phonenumber_field',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    
 ]
 
 SITE_ID = 1

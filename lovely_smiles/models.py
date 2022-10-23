@@ -4,24 +4,24 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 # Services choices
 SERVICES = (
-    ("consultation", "Consultation"),
-    ("bridges", "Bridges"),
-    ("crowns", "Crowns"),
-    ("fillings", "Fillings"),
-    ("canal", "Root canal treatment"),
-    ("scale", "Scale and polish"),
-    ("braces", "Braces"),
-    ("wisdom", "Wisdom tooth removal"),
-    ("implants", "Dental implants"),
-    ("dentures", "Dentures or false teeth"),
-    ("whitening", "Teeth whitening"),
-    ("veneers", "Dental veneers")
+    ("Consultation", "Consultation"),
+    ("Bridges", "Bridges"),
+    ("Crowns", "Crowns"),
+    ("Fillings", "Fillings"),
+    ("Canal", "Root canal treatment"),
+    ("Scale", "Scale and polish"),
+    ("Braces", "Braces"),
+    ("Wisdom", "Wisdom tooth removal"),
+    ("Implants", "Dental implants"),
+    ("Dentures", "Dentures or false teeth"),
+    ("Whitening", "Teeth whitening"),
+    ("Veneers", "Dental veneers")
 )
 
-# Denists choices
+# Dentists choices
 DENTISTS = (
-    ("first_dentist", "Dr. Becket"),
-    ("second_dentist", "Dr. Giku")
+    ("Dr_Becket", "Dr. Becket"),
+    ("Dr_Giku", "Dr. Giku")
 )
 
 

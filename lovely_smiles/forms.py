@@ -1,4 +1,5 @@
 from datetime import datetime
+from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 from django import forms
 from phonenumber_field.formfields import PhoneNumberField
 from .models import Appointment
@@ -19,10 +20,6 @@ class MakeAppointmentForm(forms.ModelForm):
             'appointment_date',
             'appointment_time',
             ]
-        appointment_date = forms.DateField(
-            help_text="Date must be a future date")
-        appointment_time = forms.TimeField(
-            help_text="Time must be in working hours interval")
         phone = PhoneNumberField()
         labels = {
             'patient_name': 'Patient name',
@@ -33,15 +30,10 @@ class MakeAppointmentForm(forms.ModelForm):
             'appointment_time': 'Time',
         }
 
-    def clean(self):
-        """
-        Get form data and clean, check capacity and
-        throw errors when tables not available
-        """
-        date = self.cleaned_data['appointment_date']
-        time = self.cleaned_data['appointment_time']
+        appointment_date = forms.DateField(
+            widget=DatePickerInput(format='%Y/%m/%d')
+        )
+        appointment_time = forms.TimeField(
+            widget=TimePickerInput()
+        )
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['appointment_date'].widget.attrs['class'] = 'datepicker'
-        self.fields['appointment_date'].widget.attrs['autocomplete'] = 'off'
