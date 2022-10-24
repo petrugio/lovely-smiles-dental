@@ -3,7 +3,6 @@ from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 from django.views.generic import TemplateView
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Appointment
 from .forms import MakeAppointmentForm

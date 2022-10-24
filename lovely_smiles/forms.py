@@ -1,4 +1,5 @@
-from datetime import datetime
+import datetime
+from django.core.exceptions import ValidationError
 from bootstrap_datepicker_plus.widgets import DatePickerInput, TimePickerInput
 from django import forms
 from phonenumber_field.formfields import PhoneNumberField
@@ -37,3 +38,33 @@ class MakeAppointmentForm(forms.ModelForm):
             widget=TimePickerInput()
         )
 
+
+    def clean(self):
+        """
+        Check if appointment within working hours or
+        not in the past and show errors when appointment cannot be made
+        """
+        date = self.cleaned_data['appointment_date']
+        time = self.cleaned_data['appointment_time']
+
+        selected_date_with_time = datetime.datetime.combine(date, time)
+
+        if selected_date_with_time < datetime.datetime.now():
+            raise ValidationError(
+                'Invalid date or time - Appointment cannot be in the past')
+        
+        working_hours = [
+            [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
+            [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
+            [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
+            [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
+            [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
+            [datetime.time(hour=8), datetime.time(hour=12, minute=59)],
+            [datetime.time(hour=1), datetime.time(hour=0, minute=59)],
+        ]
+
+        selected_day = working_hours[selected_date_with_time.weekday()]
+        if selected_date_with_time.time() < selected_day[0] or selected_date_with_time.time() > selected_day[1]:
+            raise ValidationError(
+                'Invalid time - Appointment time outside of working hours'
+            )
