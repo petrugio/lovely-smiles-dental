@@ -38,7 +38,6 @@ class MakeAppointmentForm(forms.ModelForm):
             widget=TimePickerInput()
         )
 
-
     def clean(self):
         """
         Check if appointment within working hours or
@@ -52,7 +51,7 @@ class MakeAppointmentForm(forms.ModelForm):
         if selected_date_with_time < datetime.datetime.now():
             raise ValidationError(
                 'Invalid date or time - Appointment cannot be in the past')
-        
+
         working_hours = [
             [datetime.time(hour=8), datetime.time(hour=16, minute=59)],
             [datetime.time(hour=8), datetime.time(hour=16, minute=59)],

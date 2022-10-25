@@ -82,7 +82,8 @@ class ListAppointmentsView(LoginRequiredMixin, ListView):
                 )
 
 
-class EditAppointmentsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class EditAppointmentsView(LoginRequiredMixin,
+                           UserPassesTestMixin, UpdateView):
     """
     A view to provide a form to the user
     to edit an appointment
@@ -128,9 +129,9 @@ class DeleteAppointmentView(LoginRequiredMixin, UserPassesTestMixin,
     """ A view to delete a appointment """
     model = Appointment
     success_url = "/appointments"
-    
+
     def test_func(self):
-        """ Test user is staff else show 403 """
+        """ Test if the user is the owner or is staff else show 403 """
         if self.request.user.is_staff:
             return True
         else:
