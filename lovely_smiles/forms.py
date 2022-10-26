@@ -32,7 +32,7 @@ class MakeAppointmentForm(forms.ModelForm):
         }
 
         appointment_date = forms.DateField(
-            widget=DatePickerInput(format='%Y/%m/%d')
+            widget=DatePickerInput()
         )
         appointment_time = forms.TimeField(
             widget=TimePickerInput()
@@ -63,7 +63,14 @@ class MakeAppointmentForm(forms.ModelForm):
         ]
 
         selected_day = working_hours[selected_date_with_time.weekday()]
-        if selected_date_with_time.time() < selected_day[0] or selected_date_with_time.time() > selected_day[1]:
-            raise ValidationError(
-                'Invalid time - Appointment time outside of working hours'
-            )
+        if selected_date_with_time.time() < selected_day[0]\
+                or selected_date_with_time.time() > selected_day[1]:
+            raise ValidationError('Invalid time -\
+                Hours for appointments are : Mon-Fri: 8am-5pm, Sat: 8am-1pm')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['patient_name'].widget.attrs.update({
+            'placeholder': 'Ex: John'})
+        self.fields['phone'].widget.attrs.update({
+            'placeholder': 'Ex: +353868401577'})
