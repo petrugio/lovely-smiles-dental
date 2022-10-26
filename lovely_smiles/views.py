@@ -38,7 +38,8 @@ class CreateAppointmentView(LoginRequiredMixin, CreateView):
         """
         form = super().get_form()
         form.fields['appointment_date'].widget = DatePickerInput()
-        form.fields['appointment_time'].widget = TimePickerInput()
+        form.fields['appointment_time'].widget = TimePickerInput(attrs={
+            "placeholder": "Mon-Fri: 8am-5pm, Sat: 8am-1pm"})
         return form
 
     def form_valid(self, form):
