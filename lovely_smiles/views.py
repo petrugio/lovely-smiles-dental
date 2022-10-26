@@ -4,6 +4,7 @@ from django.views.generic import DeleteView, CreateView, UpdateView, ListView
 from django.views.generic import TemplateView
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Appointment
 from .forms import MakeAppointmentForm
 
@@ -37,7 +38,8 @@ class CreateAppointmentView(LoginRequiredMixin, CreateView):
         """
         form = super().get_form()
         form.fields['appointment_date'].widget = DatePickerInput()
-        form.fields['appointment_time'].widget = TimePickerInput()
+        form.fields['appointment_time'].widget = TimePickerInput(attrs={
+            "placeholder": "Mon-Fri: 8am-5pm, Sat: 8am-1pm"})
         return form
 
     def form_valid(self, form):
@@ -112,23 +114,30 @@ class EditAppointmentsView(LoginRequiredMixin,
 
         messages.success(
             self.request,
-            f'Successfully updated appointment for {patient_name} on {date} at {time}'
+            f'Successfully updated appointment , \
+                for {patient_name} on {date} at {time}'
         )
         return super(EditAppointmentsView, self).form_valid(form)
 
     def test_func(self):
-        """ Test user is staff or show 403 """
+        """ Test if the user is the owner or is staff else show 403 """
         if self.request.user.is_staff:
             return True
         else:
             return self.request.user == self.get_object().user
 
 
-class DeleteAppointmentView(LoginRequiredMixin, UserPassesTestMixin,
-                            DeleteView):
+class DeleteAppointmentView(SuccessMessageMixin, LoginRequiredMixin,
+                            UserPassesTestMixin, DeleteView):
     """ A view to delete a appointment """
     model = Appointment
     success_url = "/appointments"
+    success_message = "Appointment deleted!"
+
+    def delete(self, request, *args, **kwargs):
+        messages.warning(self.request, self.success_message)
+        return super(DeleteAppointmentView, self).delete(
+            request, *args, **kwargs)
 
     def test_func(self):
         """ Test if the user is the owner or is staff else show 403 """

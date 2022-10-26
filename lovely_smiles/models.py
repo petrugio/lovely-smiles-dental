@@ -33,9 +33,9 @@ class Appointment(models.Model):
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
     dentist = models.CharField(
-        max_length=25, choices=DENTISTS, default="first_dentist")
+        max_length=25, choices=DENTISTS, default="Dr_Becket")
     service = models.CharField(
-        max_length=25, choices=SERVICES, default="consultation")
+        max_length=25, choices=SERVICES, default="Consultation")
     phone = PhoneNumberField(null=False, blank=False)
 
     class Meta:
