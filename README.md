@@ -25,6 +25,8 @@ View the live project
     * [Validator Testing](#validator-testing)
         * [HTML5](#html5)
         * [CSS3](#css3)
+        * [Javascript](#javascript)
+        * [Python](#python)
         * [Lighthouse](#lighthouse)
         * [Accessibility](#accessibility)
     * [Functional Testing ](#functional-testing)
@@ -38,6 +40,8 @@ View the live project
     * [Heroku](#heroku)
     * [How to Clone this repository](#how-to-clone-this-repository)
 * [Technologies used](#technologies-used)
+    * [Frameworks](#frameworks)
+    * [Tools and tips](#tools-and-tips)
 * [Credits](#credits)
 * [Contact](#contact)
 * [Acknowledgments](#acknowledgments)
@@ -639,37 +643,131 @@ Appointments
 <br>
 </details> 
  
-<hr>  
 
 ## Database
+A custom data model for Appointments was set up.
+Bellow is the data model and Entity Relationship Diagram created with [DBeaver](https://dbeaver.io/) Universal Database Tool:
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![Data model](documentation/db/data_model.jpg)
+![ER Diagram](documentation/db/er_diagram.jpg)
+
+<br>
+</details>   
+
+After the initial Django setup database was migrated to Heroku Postgres.
 
 ## Fonts
+Google font [Latto](https://fonts.google.com/specimen/Lato) was used for the website.
 
 ## Color Scheme
+Contrast checker tool from [monsido.com](https://monsido.com/tools/contrast-checker) was  used to find a good contrast ratio (Contrast Ratio:  8.16 / 1).
 
+<details>
+<summary>Screenshots</summary>
+<br>
 
+![Contrast checker tool](documentation/features/contrast.jpg)
 
-
-
-
-
-
-
-
-
+<br>
+</details>    
 
 # Testing
 [USER STORY: Website works as intended](#user-story-website-works-as-intended)
 
 ## Responsive Design
+[Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Pesticide Chrome extension](https://chrome.google.com/webstore/detail/pesticide-for-chrome-with/neonnmencpneifkhlmhmfhfiklgjmloi) was regularly used during development to test responsiveness on different  screen sizes.   
+To make the website responsive [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) and CSS was used.
 
 ## Validator Testing
 
 ### HTML5
+Code passed official [W3C Validator testing](https://validator.w3.org/#validate_by_uri)
+with one exception described in [Unfixed Bugs](#unfixed-bugs).
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![homepage](documentation/testing/w3c/home.jpg)
+![sevices](documentation/testing/w3c/services.jpg)
+![signup](documentation/testing/w3c/signup.jpg)
+![login](documentation/testing/w3c/login.jpg)
+
+<br>
+</details>
 
 ### CSS3
 
+Css passed official [W3C Validator testing](https://jigsaw.w3.org/css-validator/). There were no mistakes in my CSS.
+
+Due to the fact that CSS is stored on Cloudinary when testing the CSS by URI a cloudinary Bad Request comes out. If you click on the cloudinary link -> copy CSS and then test by pasting the code directly in W3C validator then no mistakes are found, only some warnings relating to bootstrap.
+
+<details>
+<summary>Screenshots</summary>
+<br>
+By direct input
+
+![CSS](documentation/testing/w3c/css.jpg)
+
+By URI
+
+![CSS link](documentation/testing/w3c/css_link.jpg)
+
+
+<br>
+</details>
+
+### Javascript
+
+The alert function was tested with [jshint.com](https://jshint.com/). No mistakes found.
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![JS](documentation/testing/js/js.jpg)
+
+
+<br>
+</details>
+
+### Python
+
+The code was tested with [pycodestyle](https://jshint.com/) extension in Gitpod. No mistakes found.
+Few generic Django lines of code are showing a warning of "Line too long". When i tied to make the lines shorter by indenting them with \ or "" python methods - Django breaks and cannot run any code.  
+Same with cloudinary code on line 141.
+Since this is generic Django code it was left as it is.
+
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![Python](documentation/testing/python/pycodestyle.jpg)
+
+
+<br>
+</details>
+
 ### Lighthouse
+
+Pages were tested with [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) using the [Lighthouse](https://developers.google.com/web/tools/lighthouse) resource.
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![Homepage](documentation/testing/lighthouse/lighthouse_home.jpg)
+![Sevices](documentation/testing/lighthouse/lighthouse_services.jpg)
+![Make](documentation/testing/lighthouse/lighthouse_make.jpg)
+![Delete](documentation/testing/lighthouse/lighthouse_delete.jpg)
+
+<br>
+</details>
 
 ### Accessibility
 
@@ -677,10 +775,23 @@ Accessibility was tested during development using [Wave Chrome extension](https:
 
 [Accessibility test result ](https://accessibilitytest.org/results/v7_9UaOphxoT)
 
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![Accessibility score](documentation/testing/accessability/accessibility_score.jpg)
+
+
+<br>
+</details>
+
 ## Functional Testing
 
 ## Browser Testing
 
+- Pages behave as expected in all browsers tested. The website was tested in [Chrome](https://www.google.com/intl/en_ie/chrome/), [Firefox](https://www.mozilla.org/en-US/firefox/new/),
+[Brave Browser](https://brave.com/),
+[Edge](https://www.microsoft.com/en-us/edge) and [Opera](https://www.opera.com).
 
 
  
@@ -692,29 +803,128 @@ Accessibility was tested during development using [Wave Chrome extension](https:
 Error: That port is already in use
 [Fix](https://stackoverflow.com/questions/27066366/django-development-server-how-to-stop-it-when-it-run-in-background)
 
+Error during migration. Was fixed by moving allauth installed apps to the bottom of the list in settings.py:
+
+<details>
+<summary>Screenshots</summary>
+<br>
+Bug
+
+![Allauth bug](documentation/testing/bugs/migration_bug.jpg)
+
+Fix
+
+![Allauth bug fix](documentation/testing/bugs/migration_bug_fix.jpg)
+
+<br>
+</details>
+
+
 ## Bug fix during testing: 
 - Place html templates inside the app folder
 - Add allauth email settings ( was getting 500 Error if user imputed email during registration)
+
+<details>
+<summary>Screenshots</summary>
+<br>
+Bug
+
+![Sign up bug](documentation/testing/bugs/allauth_signup_bug.jpg)
+
+Fix
+
+![Sign up bug fix](documentation/testing/bugs/allauth_signup_bug_fix.jpg)
+
+<br>
+</details>
+
 - Add iframe title to improve accessibility score
+
+<details>
+<summary>Screenshots</summary>
+<br>
+Bug
+
+![Iframe bug](documentation/testing/bugs/iframe_bug.jpg)
+
+Fix
+
+![Iframe bug fix](documentation/testing/bugs/iframe_bug_fix.jpg)
+
+<br>
+</details>
+
 - Remove Logo image alt attribute 
 
 ## Unfixed Bugs
+  - Responsiveness of Appointments table does not look the best    on devices with width lower than 385 pixels.  
+    There are ways to address this (ex: [transpose table ](https://stackoverflow.com/questions/6297591/how-to-invert-transpose-the-rows-and-columns-of-an-html-table)) but to to the time constraints it was not addressed in current release. 
+
+<details>
+<summary>Screenshots</summary>
+<br>
+
+![Table](documentation/testing/bugs/table.gif)
+
+<br>
+</details> 
+
+   - Div error shown by [W3C Validator testing](https://validator.w3.org/#validate_by_uri).  
+    Although I checked the code both in editor and Dev tools and seems to be fine. I presume it is related to the fact that div is added and removed by Javascript (where messages appear).
+
+ <details>
+<summary>Screenshots</summary>
+<br>
+
+![Div error](documentation/testing/bugs/div_error.jpg)
+![Div error](documentation/testing/bugs/div_error1.jpg)
+![Div error code](documentation/testing/bugs/div_code.jpg)
+![Div error dome](documentation/testing/bugs/div_code_dome.jpg)
+
+<br>
+</details> 
+
 
 # Deployment
 
-## Version Control
+Following the advice of our instructor 'deploy early to avoid problems down the line' the website was deployed to Heroku after initial installation.
+Steps taken are described here:
 
-## Heroku
+[Epic: Create initial Django Setup](#epic-create-initial-django-setup) 
+
+By mistake I installed Django 4 and started to have some dependencies issues and installed Django 3.2 instead. 
+
+## Version Control
+[gitpod.io](https://www.gitpod.io) was used as IDE and for Git version control.
+After the initial Django setup a Git branch called develop was used as development branch.  
+Code was regularly committed to the develop branch and only after a user story or a acceptance criteria was working locally a Pull Request was opened on Github.com and code from develop branch was merged into main branch.
+
+ <details>
+<summary>Screenshots</summary>
+<br>
+
+![Pull Requests](documentation/agile/pr.jpg)
+
+<br>
+</details> 
 
 ## How to Clone this repository
 
+Here's few steps how to clone the repository: 
 
+  - Navigate to GitHub repository
+  - In the GitHub repository, press the "Code" drop-down button located in the top right
+  - From the drop-down menu choose one of the options: HTTPS, SSH, GitHub CLI
+  - Use this link to clone repository in your environment
+  - Another option is to press "Download ZIP" to download repository to your PC
+  
+Or if you wan to fork it, straight from the repository - go to the top right corner and press - Fork
 
 # Technologies used
-- [Django 3.2.15](https://docs.djangoproject.com/en/4.1/releases/) for the structure of the website.
 - [HTML5](https://en.wikipedia.org/wiki/HTML5) for the contents and structure of the website.
 - [CSS3](https://en.wikipedia.org/wiki/CSS) for the styling and animations.
 - [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript) timed message functions.
+- [Cloudinary](https://cloudinary.com/) for static files and media.
 - [Balsamiq](https://balsamiq.com/) for wireframing.
 - [GitHub](https://github.com/) as a remote repository.
 - [gitpod.io](https://www.gitpod.io) was used as IDE and  git version control.
@@ -723,21 +933,29 @@ Error: That port is already in use
 [Brave Browser](https://brave.com/),
 [Edge](https://www.microsoft.com/en-us/edge) and [Opera](https://www.opera.com/) for browser testing the responsiveness.
 - [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) for testing screen sizes and using [Lighthouse](https://developers.google.com/web/tools/lighthouse).
+- [https://looka.com](https://looka.com) to create logo.
 - [Favicon.io](https://favicon.io/favicon-generator/) to create a favicon.
-- [Markdown Monster](https://markdownmonster.west-wind.com/) for writing my readme.
+- [Markdown Monster](https://markdownmonster.west-wind.com/) for writing readme.
 - [Grepper Chrome extension](https://www.codegrepper.com/) for finding code.
 - [Wave Chrome extension](https://wave.webaim.org/) to check web accessibility.
 - [accessibilitytest.org](https://accessibilitytest.org/) to check web accessibility score.
 - [Pesticide Chrome extension](https://chrome.google.com/webstore/detail/pesticide-for-chrome-with/neonnmencpneifkhlmhmfhfiklgjmloi) during development.
 - [Unicorn Revealer Chrome extension](https://chrome.google.com/webstore/detail/unicorn-revealer/lmlkphhdlngaicolpmaakfmhplagoaln?hl=en-GB) during development.
 - [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php) for testing and to make responsive image.
-- [Django Secret Key Generator](https://djecrety.ir/) 
-- [Blur image](https://www.befunky.com/create/)
-- [Image converter](https://ezgif.com/jpg-to-webp)
-- [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
-- [Django-bootstrap-datepicker](https://django-bootstrap-datepicker-plus.readthedocs.io/en/latest/index.html)
-- [Django-phonenumber-field](https://github.com/stefanfoulis/django-phonenumber-field)
+- [Django Secret Key Generator](https://djecrety.ir/) for generating secure Django key
+- [Blur image](https://www.befunky.com/create/) for hero image
+- [Image converter](https://ezgif.com/jpg-to-webp) for optimizing images
+- [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) for responsive design
+- [DBeaver Universal Database Tool](https://dbeaver.io/) for data model and Entity Relationship Diagram.
 
+## Frameworks
+[Django 3.2](https://docs.djangoproject.com/en/3.2/contents/) 
+
+* Libraries:
+   - [django-bootstrap-datepicker](https://django-bootstrap-datepicker-plus.readthedocs.io/en/latest/index.html) as a datetime picker
+   - [django-phonenumber-field](https://github.com/stefanfoulis/django-phonenumber-field) to check validity of phone number input
+   - [django-allauth](https://docs.djangoproject.com/en/3.2/contents/) for authentication, registration and account management 
+   - [gunicorn 20.1.0](https://pypi.org/project/gunicorn/) http server
 
 ## Tools and tips
 
@@ -745,10 +963,22 @@ Error: That port is already in use
 
 # Credits
   
-  [Dental procedures](https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/) 
+  Images were taken from [Pexels.com](https://www.pexels.com) 
+  
+   A list of dental procedures were taken from [www.nhs.uk](https://www.nhs.uk/live-well/healthy-teeth-and-gums/dental-treatments/) 
 
 # Contact
 
+My name is [Petru Chelban](https://github.com/petrugio) I am a full-stack software developer student at [Code Institute](https://codeinstitute.net/ie/), where I am pursuing Diploma in Full Stack Software Development.
+
+Please do not hesitate to contact me if you require any additional information about this project or wish to discuss work/collaboration opportunities.
+
+- [LinkedIn](https://www.linkedin.com/in/petruchelban/)
+- [GitHub](https://github.com/petrugio)
+
 # Acknowledgments
 
+A big shout out to [Code Institute](https://codeinstitute.net/ie/) for providing me with the opportunity to create this project.
+
+I'd like to thank my mentor [Daisy McGirr](https://github.com/Daisy-McG) for invaluable guidance and for reviewing my website.
 
