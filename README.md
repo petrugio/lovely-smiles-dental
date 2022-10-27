@@ -681,12 +681,12 @@ Contrast checker tool from [monsido.com](https://monsido.com/tools/contrast-chec
 ## Responsive Design
 [Chrome Developer Tools](https://developer.chrome.com/docs/devtools/) and [Pesticide Chrome extension](https://chrome.google.com/webstore/detail/pesticide-for-chrome-with/neonnmencpneifkhlmhmfhfiklgjmloi) was regularly used during development to test responsiveness on different  screen sizes.   
 To make the website responsive [Bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) and CSS was used.
+Responsiveness for different screen sizes can be seen in the features section above. 
 
 ## Validator Testing
 
 ### HTML5
-Code passed official [W3C Validator testing](https://validator.w3.org/#validate_by_uri)
-with one exception described in [Unfixed Bugs](#unfixed-bugs).
+Code passed official [W3C Validator testing](https://validator.w3.org/#validate_by_uri).
 
 <details>
 <summary>Screenshots</summary>
@@ -737,7 +737,7 @@ The alert function was tested with [jshint.com](https://jshint.com/). No mistake
 
 ### Python
 
-The code was tested with [pycodestyle](https://jshint.com/) extension in Gitpod. No mistakes found.
+The code was tested with [pycodestyle](https://pypi.org/project/pycodestyle/) extension in Gitpod. No mistakes found.
 Few generic Django lines of code are showing a warning of "Line too long". When i tied to make the lines shorter by indenting them with \ or "" python methods - Django breaks and cannot run any code.  
 Same with cloudinary code on line 141.
 Since this is generic Django code it was left as it is.
@@ -854,7 +854,7 @@ Fix
 <br>
 </details>
 
-- Remove Logo image alt attribute 
+- Remove Logo image alt attribute (as suggested by W3C HTML validator)
 
 ## Unfixed Bugs
   - Responsiveness of Appointments table does not look the best    on devices with width lower than 385 pixels.  
@@ -865,21 +865,6 @@ Fix
 <br>
 
 ![Table](documentation/testing/bugs/table.gif)
-
-<br>
-</details> 
-
-   - Div error shown by [W3C Validator testing](https://validator.w3.org/#validate_by_uri).  
-    Although I checked the code both in editor and Dev tools and seems to be fine. I presume it is related to the fact that div is added and removed by Javascript (where messages appear).
-
- <details>
-<summary>Screenshots</summary>
-<br>
-
-![Div error](documentation/testing/bugs/div_error.jpg)
-![Div error](documentation/testing/bugs/div_error1.jpg)
-![Div error code](documentation/testing/bugs/div_code.jpg)
-![Div error dome](documentation/testing/bugs/div_code_dome.jpg)
 
 <br>
 </details> 
