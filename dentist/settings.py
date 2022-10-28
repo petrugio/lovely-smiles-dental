@@ -33,7 +33,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = ["lovely-smiles-dental.herokuapp.com", "localhost"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,11 +48,9 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'bootstrap4',
     'bootstrap_datepicker_plus',
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
 ]
 
 SITE_ID = 1
@@ -88,11 +85,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dentist.wsgi.application'
 
-
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -132,7 +127,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
