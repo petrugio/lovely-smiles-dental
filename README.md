@@ -36,8 +36,8 @@ View the live project
     * [Bug fix during testing](#bug-fix-during-testing)
     * [Unfixed Bugs](#unfixed-bugs)
 * [Deployment](#deployment)
-    * [Version Control](#version-control)
     * [Heroku](#heroku)
+    * [Version Control](#version-control)
     * [How to Clone this repository](#how-to-clone-this-repository)
 * [Technologies used](#technologies-used)
     * [Frameworks](#frameworks)
@@ -319,7 +319,7 @@ In the center of the page there is a jumbotron with a greeting message and a cal
 [USER STORY: Site navigation](#user-story-site-navigation)
 
 At the top of the page the user can find the navbar. On the left the logo of the practice is displayed. If clicked - takes the user to homepage. And on the right the navigation links. Navigation menu is visible on all pages.
-Navigation links change depending if the user is logged in or not:
+Navigation links change depending on user's logged in status:
 
 The navigation links available for guest (not logged in):
   - Home
@@ -338,7 +338,7 @@ The navigation links available for guest (not logged in):
 </details>  
 
 
- The navigation links available for logged in users and staff:
+ The navigation links that are available for logged in users and staff:
   - Home
   - Services
   - Appointments 
@@ -358,7 +358,7 @@ The navigation links available for guest (not logged in):
 [USER STORY: Contact information](#user-story-contact-information)
 
 Bellow the jumbotron the user can see contact details: email, phone and address.
-If the user press any of them he/she will be redirected to specific app (both on desktop or mobile):
+If the user clicks on any of them he/she will be redirected to specific app (both on desktop or mobile):
    - Phone number -> Phone App
    - Email -> Email App
    - Address -> Maps App
@@ -391,7 +391,7 @@ Below the contact section the user can find Specific Benefits section. The user 
 
 [USER STORY: Opening hours](#user-story-opening-hours)
 
-A mini-map with dental practice location and a table with opening hours is displayed in the homepage.
+A mini-map with dental practice location and a table with opening hours is displayed on the homepage.
 
 <details>
 <summary>Screenshots</summary>
@@ -420,7 +420,7 @@ And lastly in the bottom of the page ( footer) the user can see who developed th
 ### Services page
 [USER STORY: Services offered](#user-story-services-offered)
 
-On the services page the user can find out more information about services offered by the dental practice. Each service offered has a short description an image associated with that service and a button that takes the user to the Make Appointment page.
+On the services page the user can find out more information about services offered by the dental practice. Each service offered has a short description, an image associated with that service and a button that takes the user to the Make Appointment page.
 Services are available as an drop down option when making an appointment.
 All services are:
    - Consultation
@@ -468,7 +468,7 @@ Registration is handled by Django library Allauth and it is done using username 
 <br>
 </details>
 
-Upon successful registration user is redirected to services page.
+Upon successful registration the user is redirected to services page.
 
 <details>
 <summary>Screenshots</summary>
@@ -562,7 +562,7 @@ A user with staff status (which can be assigned to any registered user from the 
 [USER STORY: View alerts](#user-story--view-alerts)
 
 A feedback message is displayed for 2 seconds at the top of the page to let the user know that action was successful. 
-If for any reason the javascript code will not work and feedback message does not dismiss automatically then the user can manually disable the message by pressing the X button on the right side of the message.
+If for any reason the javascript code will not work and the feedback message will not be dismissed automatically then the user can manually disable the message by pressing the X button on the right side of the message.
 
 Feedback messages that disappear automatically:
 
@@ -658,7 +658,7 @@ Bellow is the data model and Entity Relationship Diagram created with [DBeaver](
 <br>
 </details>   
 
-After the initial Django setup database was migrated to Heroku Postgres.
+After the initial Django setup, database was migrated to Heroku Postgres.
 
 ## Fonts
 Google font [Latto](https://fonts.google.com/specimen/Lato) was used for the website.
@@ -787,14 +787,15 @@ Accessibility was tested during development using [Wave Chrome extension](https:
 
 ## Functional Testing
 
-## Browser Testing
+Functional Testing can be view in [Functional_Testing.md](Functional_Testing.md)
 
-- Pages behave as expected in all browsers tested. The website was tested in [Chrome](https://www.google.com/intl/en_ie/chrome/), [Firefox](https://www.mozilla.org/en-US/firefox/new/),
+
+## Browser Testing
+Pages behave as expected in all browsers tested. 
+The website was tested in [Chrome](https://www.google.com/intl/en_ie/chrome/), [Firefox](https://www.mozilla.org/en-US/firefox/new/),
 [Brave Browser](https://brave.com/),
 [Edge](https://www.microsoft.com/en-us/edge) and [Opera](https://www.opera.com).
 
-
- 
 
 ## Bugs   
 
@@ -879,9 +880,37 @@ Steps taken are described here:
 
 By mistake I installed Django 4 and started to have some dependencies issues and installed Django 3.2 instead. 
 
+## Heroku
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+- Navigate to [Heroku](https://www.heroku.com/) and create an account
+- Click the new button in the top right corner
+- Select create new app
+- Enter app name
+- Select region and click create app
+- Click the resources tab and search for Heroku Postgres
+- Select hobby dev and continue
+- Go to the settings tab and then click reveal config vars
+- Add the following config vars:
+  - SECRET_KEY: (Your secret key)
+  - DATABASE_URL: (This can be found in Heroku Postgres settings)
+  - CLOUNDINARY_URL: (cloudinary api url)
+- Click the deploy tab
+- Select Deployment method -> GitHub and sign in / authorize when prompted
+- In the search box, find the repository you want to deploy and click connect
+- Scroll down to Manual deploy and choose the main branch
+- Click deploy
+- For ease of use Automatic Deploy can be enabled
+- Scroll to the top right corner and press Open App to open newly deployed app
+- If the build fails -> click the resources tab
+- Click View build log and try to find out why it failed and how it can be fixed
+
 ## Version Control
 [gitpod.io](https://www.gitpod.io) was used as IDE and for Git version control.
-After the initial Django setup a Git branch called develop was used as development branch.  
+
+After the initial Django setup a Git branch called [develop](https://github.com/petrugio/lovely-smiles-dental/tree/develop) was used as development branch. 
+
 Code was regularly committed to the develop branch and only after a user story or a acceptance criteria was working locally a Pull Request was opened on Github.com and code from develop branch was merged into main branch.
 
  <details>
