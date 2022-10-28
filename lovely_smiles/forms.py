@@ -5,7 +5,6 @@ from django import forms
 from phonenumber_field.formfields import PhoneNumberField
 from .models import Appointment
 
-
 class MakeAppointmentForm(forms.ModelForm):
     """
     Form to create and edit an appointment

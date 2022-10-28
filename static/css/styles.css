@@ -49,8 +49,6 @@ nav a,  .contact-details a {
     display: flex;
     align-items: center;
     justify-content: center;
-  
-   
 }
 
 .contact-details a:hover {
@@ -110,7 +108,8 @@ p a:hover {
     .navbar .navbar-nav {
         font-size: medium;
     }
-}  
+} 
+ 
 @media (min-width: 576px) {
     .navbar-expand-sm .navbar-collapse {
         display: flex;
